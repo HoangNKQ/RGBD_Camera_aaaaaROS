@@ -1,6 +1,29 @@
 
 # **Cách 1 (nên dùng)**
-## 
+### Sử dụng package [ros_astra_camera](https://github.com/orbbec/ros_astra_camera)
+### **Bước 1: Cài các chương trình hỗ trợ**
+```
+sudo apt install ros-$ROS_DISTRO-rgbd-launch ros-$ROS_DISTRO-libuvc ros-$ROS_DISTRO-libuvc-camera ros-$ROS_DISTRO-libuvc-ros
+```
+### **Bước 2: Clone source code về  Workspace**
+```
+cd ~/(Tên Workspace)/src
+git clone https://github.com/orbbec/ros_astra_camera
+cd ..
+catkin_make
+source devel/setup.bash
+```
+### **Bước 3: tạo udev rules**
+```
+roscd astra_camera
+chmod 777 /scripts/create_udev_rules
+./scripts/create_udev_rules
+```
+
+### **Bước 4: Rút camera ra cắm lại và chạy launch file**
+```
+roslaunch astra_camera astra.launch
+```
 # **Cách 2**
 ### **Bước 1: Cài SDK của OPENNI2**
 * [Link tải](https://structure.io/openni)
@@ -34,6 +57,7 @@ cd ~/(Tên Workspace)/src
 git clone https://github.com/ros-drivers/openni2_camera.git
 cd ..
 catkin_make
+source devel/setup.bash
 ```
 
 * Chạy launch file để khởi động camera
