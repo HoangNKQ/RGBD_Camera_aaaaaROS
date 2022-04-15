@@ -109,4 +109,5 @@ roslaunch astra_camera astra.launch
 rosrun test_astra image_pub_sub.py
 ```
 * Kết quả
+
 ![alt text](image_pub_sub.png)
